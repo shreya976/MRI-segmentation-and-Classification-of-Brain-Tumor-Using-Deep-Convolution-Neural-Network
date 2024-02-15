@@ -1,12 +1,15 @@
 # MRI Image Analysis: U-Net for Brain Tumor Segmentation
 
-Delving into the intricate realm of medical image analysis, I've harnessed the power of a groundbreaking convolutional neural network architecture known as U-Net. This innovative approach, as outlined in the seminal paper ["U-Net: Convolutional Networks for Biomedical Image Segmentation"](https://arxiv.org/pdf/1505.04597.pdf), has been adeptly tailored to segment brain tumors from MRI images with remarkable precision.
+Delving into the intricate realm of medical image analysis, I've harnessed the power of a groundbreaking convolutional neural network architecture known as U-Net. This innovative approach, as outlined in the seminal paper ["U-Net: Convolutional Networks for Biomedical Image Segmentation"](https://arxiv.org/pdf/1505.04597.pdf), has been adeptly tailored to segment brain tumors from MRI images with remarkable precision. 
+ The paper ["U-Net: Convolutional Networks for Biomedical Image Segmentation"](https://arxiv.org/pdf/1505.04597.pdf) proposes a novel network architecture for segmenting biomedical images, such as electron microscopy stacks or cell microscopy images, with very few annotated samples.
+- **Network Architecture**:
+-
+-   The network consists of a contracting path and an expansive path, forming a U-shaped structure. The contracting path captures the context of the input image, while the expansive path enables precise localization of the output segmentation³[3]. The network also uses skip connections to combine low-level and high-level features and applies data augmentation with elastic deformations to increase the robustness and invariance of the network. The paper demonstrates the application of the network to three different segmentation tasks: neuronal structures in EM stacks, cell segmentation in phase contrast microscopy, and cell segmentation in DIC microscopy. The network achieves state-of-the-art results on all three tasks, outperforming previous methods by a large margin. The network is also fast and can segment a 512x512 image in less than a second on a GPU .
 
-Within the spectrum of brain pathology, we encounter three primary types of tumors:
-1. Meningioma
-2. Glioma
-3. Pituitary tumor
 
+#Data set :
+We have obtained the data from the ["The Cancer Imaging Archive (TCIA)"](https://imaging.cancer.gov/informatics/cancer_imaging_archive.htm), in originally DICOM format for MRI images of brain tumors. (n = 532)
+ 
 ## Glimpse into Predictive Power: Sample Segmentation Results
 
 | Meningioma | Glioma | Pituitary Tumor |
@@ -16,8 +19,7 @@ Within the spectrum of brain pathology, we encounter three primary types of tumo
 | ![Sample 7](samples/sample7.png) | ![Sample 8](samples/sample8.png) | ![Sample 9](samples/sample9.png) |
 
 ## Initiating the Journey: Setup and Preprocessing
-
-To embark on this endeavor, let me guide you through the process of acquiring and preparing the requisite data. Utilizing the provided [notebook](https://github.com/adityajn105/brain-tumor-segmentation-unet/blob/master/brain-tumor-segmentation.ipynb), you'll seamlessly transition from data procurement to model training and evaluation.
+ 
 
 ### Prerequisites
 
@@ -40,7 +42,7 @@ python tumor-segmentation-unet/mat_to_numpy.py brain_tumor_dataset/
 
 ## Architectural Blueprint: Unveiling the U-Net
 
-At the heart of our segmentation pipeline resides the U-Net architecture, fortified by a fusion of tailored losses including binary crossentropy and dice loss, each accorded equal weightage. Leveraging Conv2D transpose layers facilitates effective upsampling within the network.
+At the heart of our segmentation pipeline resides the U-Net architecture, fortified by a fusion of tailored losses including binary cross-entropy and dice loss, each accorded equal weightage. Leveraging Conv2D transpose layers facilitates effective upsampling within the network.
 
 Monitoring the training progress is simplified through the utilization of the Intersection over Union (IOU) metric. Adam optimizer steers the training process across 40-60 epochs, with a decaying learning rate ranging from 1e-3 to 1e-4. Augmenting the data with horizontal flips enhances model robustness.
 
@@ -57,18 +59,3 @@ As with any evolving field, avenues for refinement abound. Consider the followin
 2. Enrich the augmentation repertoire with diverse transformations like vertical flips, brightness adjustments, or zoom operations.
 3. Explore the incorporation of advanced loss functions such as Lovasz loss, potentially assigning higher weightage to augment model performance.
 4. Delve into the realm of Hypercolumns to harness richer feature representations.
-
-## Meet the Mind Behind the Model
-
-Envisioned and brought to fruition by Aditya Jain, this endeavor reflects a passion for leveraging cutting-edge techniques to unravel the complexities of medical image analysis. For more insights into Aditya's portfolio, visit [here](https://adityajain.me).
-
-## Further Reading
-
-Curiosity piqued? Explore the following resources to deepen your understanding and embark on your own journey into the realm of image segmentation:
-1. ["U-Net: Convolutional Networks for Biomedical Image Segmentation"](https://arxiv.org/pdf/1505.04597.pdf)
-2. ["Understanding Semantic Segmentation with U-Net"](https://towardsdatascience.com/understanding-semantic-segmentation-with-unet-6be4f42d4b47)
-3. ["Up-sampling with Transposed Convolution"](https://towardsdatascience.com/up-sampling-with-transposed-convolution-9ae4f2df52d0)
-4. ["Lovasz Loss"](https://arxiv.org/abs/1705.08790)
-5. ["Jaccard Index - Intersection over Union"](https://www.jeremyjordan.me/evaluating-image-segmentation-models/)
-6. ["Understanding Dice Loss"](https://forums.fast.ai/t/understanding-the-dice-coefficient/5838)
-7. [Explore another Image Segmentation Challenge](https://github.com/adityajn105/TGS-Salt-Identification-Image-Segmentation-)
