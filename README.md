@@ -63,4 +63,5 @@ As with any evolving field, avenues for refinement abound. Consider the followin
 celltrackingchallenge/Cell_Tracking_Challenge/Welcome.html
 [4] WWW: Web page of the em segmentation challenge, http://brainiac2.mit.edu/
 isbi_challenge/
- U-net implementation, trained networks and supplementary material available at ["U-net implementation"](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net)
+ 
+*U-net implementation, trained networks and supplementary material available at ["U-net implementation"](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net)
