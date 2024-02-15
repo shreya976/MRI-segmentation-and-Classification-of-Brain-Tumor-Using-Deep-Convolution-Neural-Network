@@ -10,14 +10,6 @@ Delving into the intricate realm of medical image analysis, I've harnessed the p
 #Data set :
 We have obtained the data from the ["The Cancer Imaging Archive (TCIA)"](https://imaging.cancer.gov/informatics/cancer_imaging_archive.htm), in originally DICOM format for MRI images of brain tumors. (n = 532)
  
-## Glimpse into Predictive Power: Sample Segmentation Results
-
-| Meningioma | Glioma | Pituitary Tumor |
-|:----------:|:------:|:---------------:|
-| ![Sample 1](samples/sample1.png) | ![Sample 2](samples/sample2.png) | ![Sample 3](samples/sample3.png) |
-| ![Sample 4](samples/sample4.png) | ![Sample 5](samples/sample5.png) | ![Sample 6](samples/sample6.png) |
-| ![Sample 7](samples/sample7.png) | ![Sample 8](samples/sample8.png) | ![Sample 9](samples/sample9.png) |
-
 ## Initiating the Journey: Setup and Preprocessing
  
 
@@ -59,3 +51,16 @@ As with any evolving field, avenues for refinement abound. Consider the followin
 2. Enrich the augmentation repertoire with diverse transformations like vertical flips, brightness adjustments, or zoom operations.
 3. Explore the incorporation of advanced loss functions such as Lovasz loss, potentially assigning higher weightage to augment model performance.
 4. Delve into the realm of Hypercolumns to harness richer feature representations.
+
+#References
+
+
+[1] [Ronneberger, Fischer, & Brox, 2015] "U-net: Convolutional networks for biomedical image segmentation". International Conference on Medical image computing and computer-assisted intervention.
+
+[2] [Milletari, Navab, & Ahmadi, 2016] "V-net: Fully convolutional neural networks for volumetric medical image segmentation". International Conference on 3D Vision.
+
+[3] WWW: Web page of the cell tracking challenge, http://www.codesolorzano.com/
+celltrackingchallenge/Cell_Tracking_Challenge/Welcome.html
+[4] WWW: Web page of the em segmentation challenge, http://brainiac2.mit.edu/
+isbi_challenge/
+ U-net implementation, trained networks and supplementary material available at ["U-net implementation"](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net)
